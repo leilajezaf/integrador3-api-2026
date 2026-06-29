@@ -7,7 +7,7 @@ const router = express.Router()
 router
     .get('/', getProducts)
     .get('/byId/:id', getProductById)
-    .post('/', createProduct)
+    .post('/', upload.single('image'), createProduct)
     .put('/:id', updateProduct)
     .delete('/:id', deleteProduct)
 
