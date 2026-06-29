@@ -77,7 +77,9 @@ export const createProduct = async (req, res) => {
             })
         }
 
-        const imageBuffer = fs.readFileSync("./" + file.path)
+// ANTES: fs.readFileSync("./" + file.path)
+// AHORA:
+        const imageBuffer = fs.readFileSync(file.path);
 
         const image = await Image.create({
             fileName: file.filename,
@@ -92,7 +94,7 @@ export const createProduct = async (req, res) => {
             image: `/image/${image._id}`
         })
 
-        fs.rm("./" + file.path, error => {
+        fs.rm(file.path, error => {
             if (error) {
                 console.error("Error al eliminar la imagen temporal:", error)
             } else {
