@@ -1,5 +1,5 @@
 import express from "express";
-import { createpreferenceMP } from "../controllers/checkout.controller.js";
+import { createpreferenceMP } from "../controllers/checkout.controllers.js";
 
 const router = express.Router()
 
